@@ -4,7 +4,7 @@ Final Project Mata Kuliah Pemrograman Berbasis Kerangka Kerja Kelas B Informatik
 ## Cat&Dog Daycare
 
 ## Deskripsi 
-Merupakan sistem informasi mengenai suatu tempat penitipan kucing dan anjing.
+Cat&Dog Daycare merupakan sistem informasi mengenai penitipan hewan kucing dan anjing.
 
 ```
 Kelompok :
