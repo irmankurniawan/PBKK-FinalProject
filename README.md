@@ -1,9 +1,10 @@
 # PBKK-FinalProject
 Final Project Mata Kuliah Pemrograman Berbasis Kerangka Kerja Kelas B Informatika ITS 2018/2019
 
-## [Nama Aplikasi]
+## Cat&Dog Daycare
 
-## Deskripsi Aplikasi
+## Deskripsi 
+Merupakan sistem informasi mengenai suatu tempat penitipan kucing dan anjing.
 
 ```
 Kelompok :
