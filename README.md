@@ -14,7 +14,8 @@ Kelompok :
 ```
 
 ## USECASE DIAGRAM
-![UseCaseDiagramPBKK](https://user-images.githubusercontent.com/45796261/56194226-ae5b7d80-605c-11e9-886c-02a7e955cffa.jpg)
+![bbbbb](https://user-images.githubusercontent.com/33053581/56195020-4dcd4000-605e-11e9-89a9-cdeabd4ac24d.jpg)
 
 ## SITEMAP WEBSITE
-![sitemap pbkk](https://user-images.githubusercontent.com/33053581/56193933-ff1ea680-605b-11e9-9b1f-70259e5f906c.jpg)
+![aaaaaaaaaa](https://user-images.githubusercontent.com/33053581/56195028-51f95d80-605e-11e9-8ad8-9966b33d6b70.jpg)
+
