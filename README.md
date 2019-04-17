@@ -19,4 +19,6 @@ Kelompok :
 ## SITEMAP WEBSITE
 ![Untitled Diagram(5)](https://user-images.githubusercontent.com/33053581/56195319-ecf23780-605e-11e9-891a-31a3e283e272.jpg)
 
-
+## Tampilan Web
+### Menu Utama
+![Screenshot01](img/screenshot01.png)
