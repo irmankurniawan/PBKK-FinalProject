@@ -22,3 +22,9 @@ Kelompok :
 ## Tampilan Web
 ### Menu Utama
 ![Screenshot01](img/screenshot01.png)
+
+### Halaman Login
+![Screenshot01](img/screenshot02.png)
+
+### Halaman Registrasi
+![Screenshot01](img/screenshot03.png)
