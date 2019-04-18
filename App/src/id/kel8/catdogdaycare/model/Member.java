@@ -1,27 +1,38 @@
 package id.kel8.catdogdaycare.model;
 
 public class Member {
-	private String memberId;
+	private String memberUname;
 	private String memberName;
 	private String memberEmail;
 	private String memberPhone;
+	private String memberPassword;
 	
 	public Member() {
 	}
 	
-	public Member(String memberId, String memberName, String memberEmail, String memberPhone) {
-		this.memberId = memberId;
+	public Member(String memberUname, String memberName, String memberEmail, String memberPhone,
+			String memberPassword) {
+		this.memberUname = memberUname;
 		this.memberName = memberName;
 		this.memberEmail = memberEmail;
 		this.memberPhone = memberPhone;
+		this.memberPassword = memberPassword;
+	}
+
+	public String getMemberPassword() {
+		return memberPassword;
+	}
+
+	public void setMemberPassword(String memberPassword) {
+		this.memberPassword = memberPassword;
+	}
+
+	public String getMemberUname() {
+		return memberUname;
 	}
 	
-	public String getMemberId() {
-		return memberId;
-	}
-	
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMemberUname(String memberUname) {
+		this.memberUname = memberUname;
 	}
 	
 	public String getMemberName() {
