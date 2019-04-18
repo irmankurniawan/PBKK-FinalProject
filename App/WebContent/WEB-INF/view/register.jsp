@@ -10,7 +10,7 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<title>Login - D&amp;C Daycare</title>
+		<title>Registration - D&amp;C Daycare</title>
 		<meta name="theme-color" content="#ba68c8">
 		<style>
 			.icon-block {padding: 0 15px;}
@@ -48,7 +48,7 @@
 
 		<div class="section purple lighten-2" id="index-banner">
 			<div class="container">
-				<h1 class="header center yellow-text text-lighten-2">Login</h1>
+				<h1 class="header center yellow-text text-lighten-2">C&amp;D Registration</h1>
 			</div>
 		</div>
 
@@ -60,24 +60,36 @@
 				<div class="col s12 m6 l8">
 					<div class="card grey lighten-5">
 						<div class="card-content grey-text text-darken-4">
-							<span class="card-title">Login Form</span>
+							<span class="card-title">Registration Form</span>
 							<form:form method="POST" action="addMember" modelAttribute="member">
 								<div class="row" style="margin-bottom:0;">
 									<div class="input-field col s12">
 										<form:input path="memberName"/>
-          								<form:label path="memberName">Username</form:label>          								
+          								<form:label path="memberName">Nama Lengkap</form:label>          								
+									</div>
+									<div class="input-field col s12">
+										<form:input path="memberEmail"/>
+          								<form:label path="memberEmail">Email</form:label>          								
+									</div>
+									<div class="input-field col s12">
+										<form:input path="memberUname"/>
+          								<form:label path="memberUname">Username</form:label>          								
+									</div>
+									<div class="input-field col s12">
+										<form:input path="memberPhone"/>
+          								<form:label path="memberPhone">Phone Number</form:label>          								
 									</div>
 									<div class="input-field col s12">
 										<form:input type="password" path="memberPassword"/>
           								<form:label path="memberPassword">Password</form:label>          								
 									</div>
 									<div class="input-field col s12 center">
-										<button class="btn purple waves-effect waves-light" type="submit">Login
+										<button class="btn purple waves-effect waves-light" type="submit">Register
 										    <i class="material-icons right">send</i>
 										</button>
 									</div>
 									<div class="input-field col s12 center">
-										<span>Don't have an account? <a href="register" class="purple-text">Register here</a></span>
+										<span>Already have an account? <a href="login" class="purple-text">Login here</a></span>
 									</div>
 								</div>
 							</form:form>

@@ -20,8 +20,8 @@ public class HomeController {
 		return new ModelAndView("login","member", new Member());
 	}
 	
-	@RequestMapping("/register")
-	public String showRegistrationPage() {
-		return "register";
+	@RequestMapping(value="/register", method=RequestMethod.GET)
+	public ModelAndView showRegistrationPage() {
+		return new ModelAndView("register","member", new Member());
 	}
 }
