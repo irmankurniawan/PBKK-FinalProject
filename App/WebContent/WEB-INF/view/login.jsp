@@ -49,26 +49,35 @@
 		<div class="section purple lighten-2" id="index-banner">
 			<div class="container">
 				<h1 class="header center yellow-text text-lighten-2">Login</h1>
-				<br/><br/>
 			</div>
 		</div>
 
+		<div class="section purple lighten-2">
 		<div class="container">
 			<div class="row">
+			<div class="container">
 				<div class="col s12 m3 l2"></div>
 				<div class="col s12 m6 l8">
 					<div class="card grey lighten-5">
 						<div class="card-content grey-text text-darken-4">
 							<span class="card-title">Login Form</span>
 							<form:form method="POST" action="addMember" modelAttribute="member">
-								<div class="row">
+								<div class="row" style="margin-bottom:0;">
 									<div class="input-field col s12">
-										<form:input id="name" type="name" class="validate" path="name"/>
-          								<form:label for="name" path="name">Username</form:label>
+										<form:input path="memberName"/>
+          								<form:label path="memberName">Username</form:label>          								
 									</div>
 									<div class="input-field col s12">
-										<form:input id="password" type="password" class="validate" path="password"/>
-          								<form:label for="password" path="password">Password</form:label>
+										<form:input type="password" path="memberPassword"/>
+          								<form:label path="memberPassword">Password</form:label>          								
+									</div>
+									<div class="input-field col s12 center">
+										<button class="btn purple waves-effect waves-light" type="submit">Login
+										    <i class="material-icons right">send</i>
+										</button>
+									</div>
+									<div class="input-field col s12 center">
+										<span>Don't have an account? <a href="register" class="purple-text">Register here</a></span>
 									</div>
 								</div>
 							</form:form>
@@ -77,26 +86,11 @@
 				</div>
 				<div class="col s12 m3 l2"></div>
 			</div>
+			</div>
+		</div>
 		</div>
 	
-		<footer class="page-footer purple lighten-2">
-			<div class="container">
-				<div class="row">
-					<div class="col s12 m6 l8">
-						<h5 class="white-text">Tentang Kami</h5>
-						<p class="grey-text text-lighten-4">Cat&amp;Dog Daycare In dolor labore ex dolor cillum ad non adipisicing magna culpa sit minim commodo veniam consectetur ex commodo deserunt voluptate et consequat anim.</p>
-					</div>
-					<div class="col s12 m6 l4">
-						<h5 class="white-text">Hubungi Kami</h5>
-						<ul>
-							<li><a class="yellow-text" href="#!">Facebook</a></li>
-							<li><a class="yellow-text" href="#!">Twitter</a></li>
-							<li><a class="yellow-text" href="#!">Instagram</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-	
+		<footer class="page-footer purple lighten-2">	
 			<div class="footer-copyright">
 				<div class="container center">
 					Dibuat oleh <a class="yellow-text"
