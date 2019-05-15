@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import id.kel8.catdogdaycare.model.Member;
+import id.kel8.catdogdaycare.model.User;
 
 @Controller
 public class HomeController {
@@ -17,11 +17,11 @@ public class HomeController {
 
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public ModelAndView showLoginPage() {
-		return new ModelAndView("login","member", new Member());
+		return new ModelAndView("login","user", new User());
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public ModelAndView showRegistrationPage() {
-		return new ModelAndView("register","member", new Member());
+		return new ModelAndView("register","user", new User());
 	}
 }

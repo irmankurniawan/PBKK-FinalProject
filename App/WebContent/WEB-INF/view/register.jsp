@@ -36,27 +36,23 @@
 					<div class="card grey lighten-5">
 						<div class="card-content grey-text text-darken-4">
 							<span class="card-title">Registration Form</span>
-							<form:form method="POST" action="addMember" modelAttribute="member">
+							<form:form method="POST" action="addMember" modelAttribute="user">
 								<div class="row" style="margin-bottom:0;">
 									<div class="input-field col s12">
-										<form:input path="memberName"/>
-          								<form:label path="memberName">Nama Lengkap</form:label>          								
+										<form:input path="userNama"/>
+          								<form:label path="userNama">Nama Lengkap</form:label>          								
 									</div>
 									<div class="input-field col s12">
-										<form:input path="memberEmail"/>
-          								<form:label path="memberEmail">Email</form:label>          								
+										<form:input path="userEmail"/>
+          								<form:label path="userEmail">Email</form:label>          								
 									</div>
 									<div class="input-field col s12">
-										<form:input path="memberUname"/>
-          								<form:label path="memberUname">Username</form:label>          								
+										<form:input path="userHp"/>
+          								<form:label path="userHp">No. HP</form:label>          								
 									</div>
 									<div class="input-field col s12">
-										<form:input path="memberPhone"/>
-          								<form:label path="memberPhone">Phone Number</form:label>          								
-									</div>
-									<div class="input-field col s12">
-										<form:input type="password" path="memberPassword"/>
-          								<form:label path="memberPassword">Password</form:label>          								
+										<form:input type="password" path="userPassword"/>
+          								<form:label path="userPassword">Password</form:label>          								
 									</div>
 									<div class="input-field col s12 center">
 										<button class="btn purple waves-effect waves-light" type="submit">Register
