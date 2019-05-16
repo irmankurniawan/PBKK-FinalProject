@@ -1,7 +1,7 @@
 <div class="navbar-fixed">
 	<nav class="purple lighten-2 z-depth-0" role="navigation">
 		<div class="nav-wrapper container">
-			<a id="logo-container" href="#" class="brand-logo">C&amp;D</a>
+			<a id="logo-container" href="${pageContext.request.contextPath}" class="brand-logo">C&amp;D</a>
 
 			<!-- PC Navigation bar -->
 			<ul class="right hide-on-med-and-down">
