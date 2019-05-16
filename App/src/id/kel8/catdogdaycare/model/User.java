@@ -5,14 +5,24 @@ import javax.persistence.*;
 @Entity
 @Table(name="user")
 public class User {
-	private int userId;
-	private String userNama;
-	private String userEmail;
-	private String userHp;
-	private String userPassword;
 	
 	@Id
+	@Column(name="user_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int userId;
+	
+	@Column(name="user_nama")
+	private String userNama;
+	
+	@Column(name="user_email")
+	private String userEmail;
+	
+	@Column(name="user_hp")
+	private String userHp;
+	
+	@Column(name="user_password")
+	private String userPassword;
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -47,5 +57,5 @@ public class User {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-		
+	
 }

@@ -3,13 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
     	http://www.springframework.org/schema/beans/spring-beans.xsd
     	http://www.springframework.org/schema/context
     	http://www.springframework.org/schema/context/spring-context.xsd
     	http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- Step 3: Add support for component scanning -->
 	<context:component-scan base-package="id.kel8.catdogdaycare" />
@@ -27,4 +30,40 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- Step 6: Hibernate configuration -->
+	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/datadaycare?useSSL=false&amp;serverTimezone=UTC" />
+        <property name="user" value="root" />
+        <property name="password" value="" /> 
+
+        <!-- these are connection pool properties for C3P0 -->
+		<property name="initialPoolSize" value="5"/>
+        <property name="minPoolSize" value="5" />
+        <property name="maxPoolSize" value="20" />
+        <property name="maxIdleTime" value="30000" />
+	</bean>
+	
+	<!-- Step 7: Hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="packagesToScan" value="id.kel8.catdogdaycare.model" />
+		<property name="hibernateProperties">
+		   <props>
+		      <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+		      <prop key="hibernate.show_sql">true</prop>
+		   </props>
+		</property>
+   </bean>
+   
+   <!-- Step 8: Transaction Manager -->
+   <bean id="myTransactionManager"
+         class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+       <property name="sessionFactory" ref="sessionFactory"/>
+   </bean>
+    
+    <!-- Step 9: Component scan for transaction manager -->
+	<tx:annotation-driven transaction-manager="myTransactionManager" />
+	
 </beans>

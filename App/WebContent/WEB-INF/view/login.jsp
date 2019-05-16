@@ -63,6 +63,12 @@
 			</div>
 			</div>
 		</div>
+		<div class="container">
+			<c:forEach var="entry" items="${users}">
+				<c:out value="${entry.userId}"/>
+				<c:out value="${entry.userNama}"/>
+			</c:forEach>
+		</div>
 		</div>
 	
 		<footer class="page-footer purple lighten-2">	

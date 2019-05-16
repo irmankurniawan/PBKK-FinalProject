@@ -1,14 +1,20 @@
 package id.kel8.catdogdaycare;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import id.kel8.catdogdaycare.model.User;
+import id.kel8.catdogdaycare.service.IService;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private IService service;
 	
 	@RequestMapping("/")
 	public String showHomePage() {
@@ -16,8 +22,17 @@ public class HomeController {
 	}
 
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public ModelAndView showLoginPage() {
-		return new ModelAndView("login","user", new User());
+	public String loginPage(Model model) {
+		model.addAttribute("user", new User());
+		
+		model.addAttribute("users", service.tes());
+		return "login";
+	}
+
+	@RequestMapping(value="/pet", method=RequestMethod.GET)
+	public String petPage(Model model) {
+		model.addAttribute("pets", service.tes());
+		return "login";
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
