@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import id.kel8.catdogdaycare.model.User;
-import id.kel8.catdogdaycare.service.IService;
+import id.kel8.catdogdaycare.service.IUserService;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private IService service;
+	private IUserService service;
 	
 	@RequestMapping("/")
 	public String showHomePage() {
@@ -25,15 +25,15 @@ public class HomeController {
 	public String loginPage(Model model) {
 		model.addAttribute("user", new User());
 		
-		model.addAttribute("users", service.tes());
+		model.addAttribute("users", service.getUsers());
 		return "login";
 	}
 
-	@RequestMapping(value="/pet", method=RequestMethod.GET)
-	public String petPage(Model model) {
-		model.addAttribute("pets", service.tes());
-		return "login";
-	}
+//	@RequestMapping(value="/pet", method=RequestMethod.GET)
+//	public String petPage(Model model) {
+//		model.addAttribute("pets", service.getUsers());
+//		return "login";
+//	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public ModelAndView showRegistrationPage() {

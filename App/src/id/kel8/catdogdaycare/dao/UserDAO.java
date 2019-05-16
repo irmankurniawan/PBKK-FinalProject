@@ -13,13 +13,13 @@ import org.springframework.stereotype.Repository;
 import id.kel8.catdogdaycare.model.User;
 
 @Repository
-public class UserDAO implements InterfaceDAO {
+public class UserDAO implements UserInterfaceDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public List<User> tes() {
+	public List<User> getAllUsers() {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query<User> query = currentSession.createQuery("from User", User.class);

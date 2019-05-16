@@ -5,11 +5,6 @@
 	<head>
 		<jsp:include page="include/head.jsp"/>
 		<title>Welcome!</title>
-		<style>
-			.icon-block {padding: 0 15px;}
-			.icon-block .material-icons {font-size: inherit;}
-			.sidenav-overlay {z-index:995;}
-		</style>
 	</head>
 	<body>
 

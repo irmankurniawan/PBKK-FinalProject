@@ -4,19 +4,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<jsp:include page="include/head.jsp"/>
 		<title>Login - D&amp;C Daycare</title>
-		<meta name="theme-color" content="#ba68c8">
-		<style>
-			.icon-block {padding: 0 15px;}
-			.icon-block .material-icons {font-size: inherit;}
-			.sidenav-overlay {z-index:995;}
-</style>
 	</head>
 	<body>
 		<jsp:include page="include/navbar.jsp" />
@@ -36,7 +25,7 @@
 					<div class="card grey lighten-5">
 						<div class="card-content grey-text text-darken-4">
 							<span class="card-title">Login Form</span>
-							<form:form method="POST" action="addMember" modelAttribute="user">
+							<form:form method="POST" action="user-list" modelAttribute="user">
 								<div class="row" style="margin-bottom:0;">
 									<div class="input-field col s12">
 										<form:input type="email" path="userEmail"/>
@@ -64,10 +53,10 @@
 			</div>
 		</div>
 		<div class="container">
-			<c:forEach var="entry" items="${users}">
+<%-- 			<c:forEach var="entry" items="${users}">
 				<c:out value="${entry.userId}"/>
 				<c:out value="${entry.userNama}"/>
-			</c:forEach>
+			</c:forEach> --%>
 		</div>
 		</div>
 	
