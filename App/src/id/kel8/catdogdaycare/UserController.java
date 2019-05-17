@@ -44,7 +44,13 @@ public class UserController {
 			
 			return "redirect:/login";
 		}
+		model.addAttribute("user", user);
 		return "user-home";
 	}
 	
+	@GetMapping("/user-logout")
+	public String userLogout(HttpSession httpSession) {
+		httpSession.setAttribute("user", null);
+		return "redirect:/";
+	}
 }
