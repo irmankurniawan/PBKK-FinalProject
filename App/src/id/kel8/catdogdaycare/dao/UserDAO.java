@@ -2,6 +2,8 @@ package id.kel8.catdogdaycare.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,6 +34,22 @@ public class UserDAO implements UserInterfaceDAO {
 	public void addUser(User user) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.save(user);
+	}
+
+	@Override
+	public User getUser(User user) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		User hasil = null;
+        String que = "from User where userEmail=:user_email and userPassword=:user_password";
+        Query<User> query = currentSession.createQuery(que);
+        query.setParameter("user_email", user.getUserEmail());
+		query.setParameter("user_password", user.getUserPassword());
+		try {
+			hasil = query.getSingleResult();
+		} catch (NoResultException e) {
+			// pass
+		}
+		return hasil;
 	}
 
 }

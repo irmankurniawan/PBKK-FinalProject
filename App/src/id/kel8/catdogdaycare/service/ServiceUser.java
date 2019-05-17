@@ -29,4 +29,11 @@ public class ServiceUser implements IUserService {
 		dao.addUser(user);
 	}
 
+	@Override
+	@Transactional
+	public User getUser(User user) {
+		
+		return dao.getUser(user);
+	}
+
 }

@@ -24,7 +24,7 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@GetMapping("/login")
 	public String loginPage(Model model) {
 		model.addAttribute("user", new User());
 		

@@ -25,7 +25,7 @@
 					<div class="card grey lighten-5">
 						<div class="card-content grey-text text-darken-4">
 							<span class="card-title">Login Form</span>
-							<form:form method="POST" action="user-list" modelAttribute="user">
+							<form:form method="POST" action="user-check" modelAttribute="user">
 								<div class="row" style="margin-bottom:0;">
 									<div class="input-field col s12">
 										<form:input type="email" path="userEmail"/>

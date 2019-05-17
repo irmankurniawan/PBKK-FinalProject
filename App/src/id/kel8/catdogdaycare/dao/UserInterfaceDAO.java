@@ -8,4 +8,6 @@ public interface UserInterfaceDAO {
 	public List<User> getUsers();
 
 	public void addUser(User user);
+
+	public User getUser(User user);
 }
