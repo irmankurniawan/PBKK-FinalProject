@@ -5,5 +5,7 @@ import java.util.List;
 import id.kel8.catdogdaycare.model.User;
 
 public interface UserInterfaceDAO {
-	public List<User> getAllUsers();
+	public List<User> getUsers();
+
+	public void addUser(User user);
 }

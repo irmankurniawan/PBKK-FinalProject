@@ -19,13 +19,19 @@ public class UserDAO implements UserInterfaceDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public List<User> getAllUsers() {
+	public List<User> getUsers() {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query<User> query = currentSession.createQuery("from User", User.class);
 		
 		List<User> users = query.getResultList();
 		return users;
+	}
+
+	@Override
+	public void addUser(User user) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.save(user);
 	}
 
 }

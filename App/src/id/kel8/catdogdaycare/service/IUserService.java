@@ -6,4 +6,6 @@ import id.kel8.catdogdaycare.model.*;
 
 public interface IUserService {
 	public List<User> getUsers();
+
+	public void addUser(User user);
 }

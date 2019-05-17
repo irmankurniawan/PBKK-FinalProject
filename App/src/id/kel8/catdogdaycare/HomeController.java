@@ -3,6 +3,9 @@ package id.kel8.catdogdaycare;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,14 +32,17 @@ public class HomeController {
 		return "login";
 	}
 
-//	@RequestMapping(value="/pet", method=RequestMethod.GET)
-//	public String petPage(Model model) {
-//		model.addAttribute("pets", service.getUsers());
-//		return "login";
-//	}
 	
-	@RequestMapping(value="/register", method=RequestMethod.GET)
-	public ModelAndView showRegistrationPage() {
-		return new ModelAndView("register","user", new User());
+	@GetMapping("/register")
+	public String showRegistrationPage(Model model) {
+		User theUser = new User();
+		model.addAttribute("user", theUser);
+		return "register";
+	}
+	
+	@PostMapping("/addUser")
+	public String addUser(@ModelAttribute("user") User user) {
+		service.addUser(user);
+		return "redirect:/user-list";
 	}
 }

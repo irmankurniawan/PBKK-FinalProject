@@ -19,7 +19,14 @@ public class ServiceUser implements IUserService {
 	@Transactional
 	public List<User> getUsers() {
 		
-		return dao.getAllUsers();
+		return dao.getUsers();
+	}
+
+	@Override
+	@Transactional
+	public void addUser(User user) {
+		
+		dao.addUser(user);
 	}
 
 }
