@@ -1,5 +1,7 @@
 package id.kel8.catdogdaycare;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,23 +22,31 @@ public class HomeController {
 	private IUserService service;
 	
 	@RequestMapping("/")
-	public String showHomePage() {
+	public String showHomePage(HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		if(user!=null) {
+			return "redirect:/user-home";
+		}
 		return "home";
 	}
 
 	@GetMapping("/login")
-	public String loginPage(Model model) {
+	public String loginPage(Model model, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		//jika ada session user, maka redirect ke dashboard user
+		if(user!=null) {
+			return "redirect:/user-home";
+		}
 		model.addAttribute("user", new User());
 		
-		model.addAttribute("users", service.getUsers());
 		return "login";
 	}
 
 	
 	@GetMapping("/register")
-	public String showRegistrationPage(Model model) {
-		User theUser = new User();
-		model.addAttribute("user", theUser);
+	public String showRegistrationPage(Model model, HttpSession httpSession) {
+		model.addAttribute("user", new User());
+		
 		return "register";
 	}
 	
