@@ -60,7 +60,7 @@ public class UserController {
 	public String userProfil(@RequestParam("id") int theId, Model model, HttpSession httpSession) {
 		User user = (User) httpSession.getAttribute("user");
 		//jika http session tidak tersimpan, maka redirect ke home atau login
-		if(user==null) {
+		if(user==null || user.getUserId()!=theId) {
 			
 			return "redirect:/login";
 		}
