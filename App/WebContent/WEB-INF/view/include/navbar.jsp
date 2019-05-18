@@ -1,10 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="navbar-fixed">
+	<c:url var="updateLink" value="/user-profil">
+		<c:param name="id" value="${user.userId}"/>
+	</c:url>
 	<!-- Dropdown Structure -->
 	<ul id="dropdown1" class="dropdown-content">
-		<li><a href="#!" class="purple-text text-darken-3">Edit Profil</a></li>
+		<li><a href="${updateLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
+		<li><a href="user-pet" class="purple-text text-darken-3">Lihat Pet</a></li>
 		<li class="divider"></li>
 		<li><a href="user-logout" class="purple-text text-darken-3">Keluar</a></li>
 	</ul>
+	
 	<nav class="purple lighten-2 z-depth-0" role="navigation">
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="${pageContext.request.contextPath}" class="brand-logo">C&amp;D</a>

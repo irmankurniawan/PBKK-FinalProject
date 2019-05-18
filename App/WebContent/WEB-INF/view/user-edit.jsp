@@ -25,31 +25,32 @@
 					<div class="card grey lighten-5">
 						<div class="card-content grey-text text-darken-4">
 							<span class="card-title">Edit Profil Form</span>
-							<form:form method="POST" action="saveUser" modelAttribute="user">
+							
+							<form:form method="POST" action="updateUser" modelAttribute="modelUser">
+								<form:hidden path="userId"/>
+								<form:hidden path="userPassword"/>
+								<%-- <form:hidden path="userPassword" value="${curUser.userPassword}"/> --%>
 								<div class="row" style="margin-bottom:0;">
 									<div class="input-field col s12">
-										<form:input path="userNama"/>
+										<form:input path="userNama" value="${user.userNama}"/>
           								<form:label path="userNama">Nama Lengkap</form:label>          								
 									</div>
 									<div class="input-field col s12">
-										<form:input path="userEmail"/>
+										<form:input path="userEmail" value="${user.userEmail}"/>
           								<form:label path="userEmail">Email</form:label>          								
 									</div>
 									<div class="input-field col s12">
-										<form:input path="userHp"/>
+										<form:input path="userHp" value="${user.userHp}"/>
           								<form:label path="userHp">No. HP</form:label>          								
 									</div>
-									<div class="input-field col s12">
+									<%-- <div class="input-field col s12">
 										<form:input type="password" path="userPassword"/>
           								<form:label path="userPassword">Password</form:label>          								
-									</div>
+									</div> --%>
 									<div class="input-field col s12 center">
 										<button class="btn purple waves-effect waves-light" type="submit">Save
-										    <i class="material-icons right">save</i>
+										    <i class="material-icons left">save</i>
 										</button>
-									</div>
-									<div class="input-field col s12 center">
-										<span>Already have an account? <a href="login" class="purple-text">Login here</a></span>
 									</div>
 								</div>
 							</form:form>

@@ -36,4 +36,18 @@ public class ServiceUser implements IUserService {
 		return dao.getUser(user);
 	}
 
+	@Override
+	@Transactional
+	public void updateUser(User user) {
+		dao.updateUser(user);
+		
+	}
+
+	@Override
+	@Transactional
+	public User getUserById(int theId) {
+		
+		return dao.getUserById(theId);
+	}
+
 }

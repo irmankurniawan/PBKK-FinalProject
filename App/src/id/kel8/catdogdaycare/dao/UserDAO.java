@@ -52,4 +52,17 @@ public class UserDAO implements UserInterfaceDAO {
 		return hasil;
 	}
 
+	@Override
+	public void updateUser(User user) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(user);
+	}
+
+	@Override
+	public User getUserById(int theId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		User hasil = currentSession.get(User.class, theId);
+		return hasil;
+	}
+
 }

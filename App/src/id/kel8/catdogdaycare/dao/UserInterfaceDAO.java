@@ -10,4 +10,8 @@ public interface UserInterfaceDAO {
 	public void addUser(User user);
 
 	public User getUser(User user);
+
+	public void updateUser(User user);
+
+	public User getUserById(int theId);
 }
