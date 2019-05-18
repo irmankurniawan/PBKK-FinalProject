@@ -2,7 +2,7 @@ package id.kel8.catdogdaycare.service;
 
 import java.util.List;
 
-import id.kel8.catdogdaycare.model.*;
+import id.kel8.catdogdaycare.model.User;
 
 public interface IUserService {
 	public List<User> getUsers();

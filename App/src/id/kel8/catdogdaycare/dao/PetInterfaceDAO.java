@@ -1,10 +1,10 @@
-package id.kel8.catdogdaycare.service;
+package id.kel8.catdogdaycare.dao;
 
 import java.util.List;
 
 import id.kel8.catdogdaycare.model.Pet;
 
-public interface IPetService {
+public interface PetInterfaceDAO {
 	public List<Pet> getPets();
 	
 	public void addPet(Pet pet);
