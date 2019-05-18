@@ -3,11 +3,13 @@ package id.kel8.catdogdaycare.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import id.kel8.catdogdaycare.dao.PetInterfaceDAO;
 import id.kel8.catdogdaycare.model.Pet;
 
+@Service
 public class ServicePet implements IPetService {
 
 	@Autowired
@@ -51,8 +53,7 @@ public class ServicePet implements IPetService {
 	@Override
 	@Transactional
 	public List<Pet> getPetByIdUser(int theId) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getPetByIdUser(theId);
 	}
 
 }

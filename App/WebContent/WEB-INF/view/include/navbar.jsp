@@ -1,12 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="navbar-fixed">
-	<c:url var="updateLink" value="/user-profil">
-		<c:param name="id" value="${user.userId}"/>
-	</c:url>
+	<c:url var="profilLink" value="/user-profil"><c:param name="id" value="${user.userId}"/></c:url>
+	<c:url var="petLink" value="/user-pet"><c:param name="uid" value="${user.userId}"/></c:url>
 	<!-- Dropdown Structure -->
 	<ul id="dropdown1" class="dropdown-content">
-		<li><a href="${updateLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
-		<li><a href="user-pet" class="purple-text text-darken-3">Lihat Pet</a></li>
+		<li><a href="${profilLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
+		<li><a href="${petLink}" class="purple-text text-darken-3">Lihat Pet</a></li>
 		<li class="divider"></li>
 		<li><a href="user-logout" class="purple-text text-darken-3">Keluar</a></li>
 	</ul>
@@ -34,8 +33,8 @@
 					<li><a href="register">Register</a></li>
 				<% } else {%>
 					<li><a href="#!">${user.userNama}</a></li>
-					<li><a href="${updateLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
-					<li><a href="user-pet" class="purple-text text-darken-3">Lihat Pet</a></li>
+					<li><a href="${profilLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
+					<li><a href="${petLink}" class="purple-text text-darken-3">Lihat Pet</a></li>
 					<li class="divider"></li>
 					<li><a href="user-logout" class="purple-text text-darken-3">Keluar</a></li>
 				<% }%>
