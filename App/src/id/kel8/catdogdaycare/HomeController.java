@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import id.kel8.catdogdaycare.model.User;
 import id.kel8.catdogdaycare.service.IUserService;
@@ -19,7 +17,7 @@ import id.kel8.catdogdaycare.service.IUserService;
 public class HomeController {
 	
 	@Autowired
-	private IUserService service;
+	private IUserService userService;
 	
 	@RequestMapping("/")
 	public String showHomePage(HttpSession httpSession) {
@@ -52,7 +50,7 @@ public class HomeController {
 	
 	@PostMapping("/addUser")
 	public String addUser(@ModelAttribute("user") User user) {
-		service.addUser(user);
+		userService.addUser(user);
 		return "redirect:/user-list";
 	}
 }
