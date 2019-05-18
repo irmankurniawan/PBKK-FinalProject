@@ -17,8 +17,8 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 	
-	@PostMapping("/user-list")
-	public String loginPage(Model model) {
+	@GetMapping("/user-list")
+	public String userListPage(Model model) {
 		model.addAttribute("users", userService.getUsers());
 		return "user-list";
 	}
@@ -52,5 +52,16 @@ public class UserController {
 	public String userLogout(HttpSession httpSession) {
 		httpSession.setAttribute("user", null);
 		return "redirect:/";
+	}
+	
+	@GetMapping("/user-edit")
+	public String userEdit(Model model, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		if(user==null) {
+			
+			return "redirect:/login";
+		}
+		model.addAttribute("user", new User());
+		return "user-edit";
 	}
 }
