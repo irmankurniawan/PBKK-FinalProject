@@ -32,7 +32,7 @@ public class ServicePet implements IPetService {
 	@Override
 	@Transactional
 	public void updatePet(Pet pet) {
-		// TODO Auto-generated method stub
+		dao.updatePet(pet);
 
 	}
 
@@ -46,8 +46,7 @@ public class ServicePet implements IPetService {
 	@Override
 	@Transactional
 	public Pet getPetById(int theId) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getPetById(theId);
 	}
 
 	@Override

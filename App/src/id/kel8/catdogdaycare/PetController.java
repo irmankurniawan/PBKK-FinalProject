@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import id.kel8.catdogdaycare.model.Pet;
 import id.kel8.catdogdaycare.model.User;
 import id.kel8.catdogdaycare.service.IPetService;
 import id.kel8.catdogdaycare.service.IUserService;
@@ -28,6 +31,23 @@ public class PetController {
 		
 		model.addAttribute("pets", petService.getPetByIdUser(theId));
 		return "user-pet";
+	}
+	
+	@GetMapping("/pet-edit")
+	public String petEditPage(@RequestParam("id") int petId, Model model, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		Pet pete = petService.getPetById(petId);
+		if(user==null) return "redirect:/login";
+		
+		model.addAttribute("pet", pete);
+		model.addAttribute("modelPet", new Pet());
+		return "pet-edit";
+	}
+	
+	@PostMapping("/updatePet")
+	public String updatePet(@ModelAttribute("modelPet") Pet pet) {
+		petService.updatePet(pet);
+		return "redirect:/user-pet";
 	}
 	
 }
