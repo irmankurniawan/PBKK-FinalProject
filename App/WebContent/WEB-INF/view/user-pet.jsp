@@ -22,7 +22,7 @@
 					</div>
 	
 					<div class="col s12 m8">
-						<table>
+						<table class="responsive-table">
 						  <thead>
 						    <tr>
 						        <!-- <th>ID</th> -->
