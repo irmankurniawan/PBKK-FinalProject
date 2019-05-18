@@ -17,10 +17,7 @@
 			
 			<!-- PC Navigation bar -->
 			<ul class="right hide-on-med-and-down">
-				<%
-				//HttpSession session2 = request.getSession();
-				if(session.getAttribute("user")==null){
-				%>
+				<% if(session.getAttribute("user")==null){ %>
 					<li><a href="login"> <i class="material-icons left">exit_to_app</i>LOGIN</a></li>
 					<li><a class="waves-effect waves-light btn-flat yellow lighten-2 grey-text text-darken-3" href="register">
 							<i class="material-icons left">account_circle</i>REGISTER
@@ -32,8 +29,16 @@
 
 			<!-- Mobile Navigation bar -->
 			<ul id="nav-mobile" class="sidenav">
-				<li><a href="login">Login</a></li>
-				<li><a href="register">Register</a></li>
+				<% if(session.getAttribute("user")==null){ %>
+					<li><a href="login">Login</a></li>
+					<li><a href="register">Register</a></li>
+				<% } else {%>
+					<li><a href="#!">${user.userNama}</a></li>
+					<li><a href="${updateLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
+					<li><a href="user-pet" class="purple-text text-darken-3">Lihat Pet</a></li>
+					<li class="divider"></li>
+					<li><a href="user-logout" class="purple-text text-darken-3">Keluar</a></li>
+				<% }%>
 			</ul>
 
 			<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i
