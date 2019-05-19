@@ -25,7 +25,7 @@
 					<div class="col s12 m8">
 					<c:choose>
 					<c:when test="${fn:length(pets)>0}">
-						<table class="responsive-table">
+						<table class="centered highlight responsive-table">
 						  <thead>
 						    <tr>
 						        <!-- <th>ID</th> -->
@@ -53,6 +53,10 @@
 							</c:forEach>
 						  </tbody>
 						</table>
+						<div class="center" style="margin-top:2em;">
+							<a href="pet-add" id="download-button"
+								class="btn-large waves-effect waves-light green lighten-2">Tambahkan Hewan</a>
+						</div>
 					</c:when>
 					<c:otherwise>
 					<div style="margin:5em 0;">

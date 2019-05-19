@@ -22,23 +22,30 @@
 					</div>
 	
 					<div class="col s12 m8">
-						<table class="responsive-table">
+						<table class="centered highlight responsive-table">
 						  <thead>
 						    <tr>
 						        <th>ID</th>
 						        <th>Nama</th>
 						        <th>Email</th>
 						        <th>No. HP</th>
+						        <th>Action</th>
 						    </tr>
 						  </thead>
 						
 						  <tbody>
 							<c:forEach var="user" items="${users}">
+								<c:url var="editLink" value="/user-edit">
+						  			<c:param name="id" value="${user.userId}"/>
+						  		</c:url>
 								<tr>
 							      <td><c:out value="${user.userId}"/></td>
 							      <td><c:out value="${user.userNama}"/></td>
 							      <td><c:out value="${user.userEmail}"/></td>
 							      <td><c:out value="${user.userHp}"/></td>
+							      <td>
+							      	<a class="waves-effect waves-purple btn-flat" href="${editLink}"><i class="material-icons">edit</i></a>
+							      </td>
 							    </tr>
 							</c:forEach>
 						  </tbody>

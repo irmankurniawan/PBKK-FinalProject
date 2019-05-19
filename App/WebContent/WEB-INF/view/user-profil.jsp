@@ -22,7 +22,7 @@
 					</div>
 	
 					<div class="col s12 m8">
-						<table class="responsive-table">
+						<table class="centered highlight responsive-table">
 						  <thead>
 						    <tr>
 						        <th>Nama</th>
