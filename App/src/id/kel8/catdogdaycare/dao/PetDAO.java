@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import id.kel8.catdogdaycare.model.Pet;
+import id.kel8.catdogdaycare.model.User;
 
 @Repository
 public class PetDAO implements PetInterfaceDAO {
@@ -57,13 +58,8 @@ public class PetDAO implements PetInterfaceDAO {
 	public List<Pet> getPetByIdUser(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		List<Pet> hasil = null;
-		Query<Pet> query = currentSession.createQuery("from Pet where petIdPemilik=:id_pemilik");
-		query.setParameter("id_pemilik", theId);
-		try {
-			hasil = query.getResultList();
-		} catch (NoResultException e) {
-			// pass
-		}
+		User que = currentSession.get(User.class, theId);
+		hasil = que.getPets();
 		return hasil;
 	}
 

@@ -85,8 +85,9 @@ public class UserController {
 	}
 	
 	@PostMapping("/updateUser")
-	public String updateUser(@ModelAttribute("user") User user) {
+	public String updateUser(@ModelAttribute("user") User user, HttpSession httpSession) {
 		userService.updateUser(user);
+		httpSession.setAttribute("user", user);
 		return "redirect:/user-profil?id="+user.getUserId();
 	}
 }

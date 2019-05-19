@@ -1,5 +1,8 @@
 package id.kel8.catdogdaycare.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +25,10 @@ public class User {
 	
 	@Column(name="user_password")
 	private String userPassword;
+	
+	@OneToMany(fetch=FetchType.EAGER ,cascade=CascadeType.ALL)
+	@JoinColumn(name="pet_id_pemilik", referencedColumnName = "user_id", nullable = false, insertable=false, updatable=false)
+	private List<Pet> pets;
 	
 	public int getUserId() {
 		return userId;
@@ -56,6 +63,25 @@ public class User {
 	}
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
+	}
+	
+	//convenience method
+	public void addPet(Pet thePet) {
+		if(pets == null) pets = new ArrayList<>();
+		
+		pets.add(thePet);
+		
+	}
+	
+	public List<Pet> getPets() {
+		return pets;
+	}
+	
+	public void setPets(List<Pet> pets) {
+		this.pets = pets;
+	}
+	
+	public User() {
 	}
 	
 }

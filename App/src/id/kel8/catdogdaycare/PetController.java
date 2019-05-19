@@ -36,18 +36,22 @@ public class PetController {
 	@GetMapping("/pet-edit")
 	public String petEditPage(@RequestParam("id") int petId, Model model, HttpSession httpSession) {
 		User user = (User) httpSession.getAttribute("user");
-		Pet pete = petService.getPetById(petId);
 		if(user==null) return "redirect:/login";
 		
+		Pet pete = petService.getPetById(petId);
 		model.addAttribute("pet", pete);
 		model.addAttribute("modelPet", new Pet());
 		return "pet-edit";
 	}
 	
 	@PostMapping("/updatePet")
-	public String updatePet(@ModelAttribute("modelPet") Pet pet) {
+	public String updatePet(@ModelAttribute("modelPet") Pet pet, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		if(user==null) return "redirect:/login";
+		
+		//System.out.println(pet.toString());
 		petService.updatePet(pet);
-		return "redirect:/user-pet";
+		return "redirect:/user-pet?uid="+user.getUserId();
 	}
 	
 }

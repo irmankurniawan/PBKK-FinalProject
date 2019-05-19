@@ -14,15 +14,12 @@ public class Pet {
 	@Column(name="pet_name")
 	private String petName;
 	
-	@Column(name="pet_id_pemilik")
-	private int petIdPemilik;
-	
 	@Column(name="pet_jenis")
 	private String petJenis;
 	
 	@Column(name="pet_gender")
 	private String petGender;
-
+	
 	public int getPetId() {
 		return petId;
 	}
@@ -37,14 +34,6 @@ public class Pet {
 
 	public void setPetName(String petName) {
 		this.petName = petName;
-	}
-
-	public int getPetIdPemilik() {
-		return petIdPemilik;
-	}
-
-	public void setPetIdPemilik(int petIdPemilik) {
-		this.petIdPemilik = petIdPemilik;
 	}
 
 	public String getPetJenis() {
@@ -63,4 +52,18 @@ public class Pet {
 		this.petGender = petGender;
 	}
 
+	public Pet() {
+	}
+
+	public Pet(String petName, String petJenis, String petGender) {
+		this.petName = petName;
+		this.petJenis = petJenis;
+		this.petGender = petGender;
+	}
+
+	@Override
+	public String toString() {
+		return "Pet [petId=" + petId + ", petName=" + petName + ", petJenis=" + petJenis + ", petGender=" + petGender
+				+ "]";
+	}
 }

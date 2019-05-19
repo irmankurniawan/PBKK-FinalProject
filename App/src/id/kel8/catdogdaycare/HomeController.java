@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import id.kel8.catdogdaycare.model.User;
 import id.kel8.catdogdaycare.service.IUserService;
@@ -19,12 +18,13 @@ public class HomeController {
 	@Autowired
 	private IUserService userService;
 	
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String showHomePage(HttpSession httpSession) {
 		User user = (User) httpSession.getAttribute("user");
 		if(user!=null) {
 			return "redirect:/user-home";
 		}
+
 		return "home";
 	}
 
