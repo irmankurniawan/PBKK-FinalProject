@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,6 +23,8 @@
 					</div>
 	
 					<div class="col s12 m8">
+					<c:choose>
+					<c:when test="${fn:length(pets)>0}">
 						<table class="responsive-table">
 						  <thead>
 						    <tr>
@@ -50,7 +53,19 @@
 							</c:forEach>
 						  </tbody>
 						</table>
-
+					</c:when>
+					<c:otherwise>
+					<div style="margin:5em 0;">
+						<div class="center">
+							<h5 class="grey-text">Kamu belum pernah mengisi data hewan</h5>
+						</div>
+						<div class="center" style="margin-top:4em;">
+							<a href="pet-add" id="download-button"
+								class="btn-large waves-effect waves-light green lighten-2">Tambahkan Hewan</a>
+						</div>
+					</div>
+					</c:otherwise>
+					</c:choose>
 					</div>
 	
 					<div class="col s12 m2">

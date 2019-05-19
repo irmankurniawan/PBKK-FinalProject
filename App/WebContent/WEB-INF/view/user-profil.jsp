@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="container">
-			<div class="section">
+			<div class="section" style="margin:5em 0;">
 				<div class="row">
 					<div class="col s12 m2">
 					</div>
@@ -48,13 +48,13 @@
 					<div class="col s12 m2">
 					</div>
 				</div>
-	
-			</div>
-			<div class="section center">
-				<a class="btn waves-effect purple lighten-2 " href="${updateLink}">
+				<div class="section center">
+					<a class="btn-large waves-effect green lighten-2 " href="${updateLink}">
 							<i class="material-icons left">edit</i>EDIT
 					</a>
+				</div>
 			</div>
+			
 		</div>
 	
 		<footer class="page-footer purple lighten-2">	

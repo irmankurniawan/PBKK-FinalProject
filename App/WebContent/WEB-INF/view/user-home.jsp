@@ -15,7 +15,7 @@
 				</div>
 				<br/><br/>
 				<div class="center">
-					<a href="register" id="download-button"
+					<a href="pet-add" id="download-button"
 						class="btn-large waves-effect waves-light yellow lighten-2 grey-text text-darken-3">Tambahkan Hewan</a>
 				</div>
 				<br/><br/>
