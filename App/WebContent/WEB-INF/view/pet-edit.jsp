@@ -27,14 +27,13 @@
 							<span class="card-title">Edit Pet Form</span>
 							
 							<form:form method="POST" action="updatePet" modelAttribute="modelPet">
-								<form:hidden path="petId"/>
-								<form:hidden path="petIdPemilik" value="${pet.petIdPemilik}"/>
+								<form:hidden path="petId" value="${pet.petId}"/>
 								<div class="row" style="margin-bottom:0;">
 									<div class="input-field col s12">
 										<form:input path="petName" value="${pet.petName}"/>
           								<form:label path="petName">Nama Pet</form:label>          								
 									</div>
-									<%-- <div class="input-field col s12">
+									<div class="input-field col s12">
 										<form:label path="petJenis" class="active">Jenis Pet</form:label>
 										<div class="row" style="margin-bottom:0;margin-top:10px;">
 											<div class="col s12 m6 l4">
@@ -50,12 +49,12 @@
 											    </label>
 										    </div>
 										  </div>
-									</div> --%>
-									<div class="input-field col s12">
-										<form:input path="petJenis" value="${pet.petJenis}"/>
-          								<form:label path="petJenis">Jenis Pet</form:label>  
 									</div>
 									<%-- <div class="input-field col s12">
+										<form:input path="petJenis" value="${pet.petJenis}"/>
+          								<form:label path="petJenis">Jenis Pet</form:label>  
+									</div> --%>
+									<div class="input-field col s12">
 										<form:label path="petGender" class="active">Gender Pet</form:label>
 										<div class="row" style="margin-bottom:0;margin-top:10px;">
 											<div class="col s12 m6 l4">
@@ -71,11 +70,11 @@
 											    </label>
 										    </div>
 										  </div>      								
-									</div> --%>
-									<div class="input-field col s12">
+									</div>
+									<%-- <div class="input-field col s12">
 										<form:input path="petGender" value="${pet.petGender}"/>
           								<form:label path="petGender">Gender Pet</form:label>  
-									</div>
+									</div> --%>
 									<div class="input-field col s12 center">
 										<button class="btn purple waves-effect waves-light" type="submit">Save
 										    <i class="material-icons left">save</i>
