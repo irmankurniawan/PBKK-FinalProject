@@ -30,9 +30,19 @@ public class PetDAO implements PetInterfaceDAO {
 	}
 
 	@Override
-	public void addPet(Pet pet) {
+	public void addPet(User user, Pet pet) {
 		Session currentSession = sessionFactory.getCurrentSession();
+		
+		user.addPet(pet);
 		currentSession.save(pet);
+		
+		int uid = user.getUserId();
+		int pid = pet.getPetId();
+		
+		Query que = currentSession.createQuery("update Pet set pet_id_pemilik=:_pemilikId where petId=:_petId");
+		que.setParameter("_petId", pid);
+		que.setParameter("_pemilikId", uid);
+		que.executeUpdate();
 	}
 
 	@Override

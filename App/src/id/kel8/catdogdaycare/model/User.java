@@ -27,7 +27,7 @@ public class User {
 	private String userPassword;
 	
 	@OneToMany(fetch=FetchType.EAGER ,cascade=CascadeType.ALL)
-	@JoinColumn(name="pet_id_pemilik", referencedColumnName = "user_id", nullable = false, insertable=false, updatable=false)
+	@JoinColumn(name="pet_id_pemilik", referencedColumnName = "user_id", nullable = true, insertable=false, updatable=false)
 	private List<Pet> pets;
 	
 	public int getUserId() {

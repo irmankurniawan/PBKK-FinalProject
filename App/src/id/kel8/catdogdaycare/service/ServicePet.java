@@ -7,13 +7,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import id.kel8.catdogdaycare.dao.PetInterfaceDAO;
+import id.kel8.catdogdaycare.dao.UserInterfaceDAO;
 import id.kel8.catdogdaycare.model.Pet;
+import id.kel8.catdogdaycare.model.User;
 
 @Service
 public class ServicePet implements IPetService {
 
 	@Autowired
 	private PetInterfaceDAO dao;
+	
+	@Autowired
+	private UserInterfaceDAO userDAO;
 	
 	@Override
 	@Transactional
@@ -24,9 +29,8 @@ public class ServicePet implements IPetService {
 
 	@Override
 	@Transactional
-	public void addPet(Pet pet) {
-		// TODO Auto-generated method stub
-
+	public void addPet(User user, Pet pet) {
+		dao.addPet(user, pet);
 	}
 
 	@Override

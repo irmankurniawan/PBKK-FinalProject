@@ -44,6 +44,28 @@ public class PetController {
 		return "pet-edit";
 	}
 	
+	@GetMapping("/pet-add")
+	public String addPetPage(Model model, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		if(user==null) return "redirect:/login";
+		
+		Pet pete = new Pet();
+
+		model.addAttribute("modelPet", pete);
+		return "pet-add";
+	}
+	
+	@PostMapping("/addPet")
+	public String addPet(@ModelAttribute("pet") Pet pet, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		if(user==null) return "redirect:/login";
+		
+		User user2 = userService.getUserById(user.getUserId());
+		
+		petService.addPet(user2, pet);
+		return "redirect:/user-pet?uid="+user.getUserId();
+	}
+	
 	@PostMapping("/updatePet")
 	public String updatePet(@ModelAttribute("modelPet") Pet pet, HttpSession httpSession) {
 		User user = (User) httpSession.getAttribute("user");
