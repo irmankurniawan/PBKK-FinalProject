@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="navbar-fixed">
-	<c:url var="profilLink" value="${pageContext.request.contextPath}/user-profil"><c:param name="id" value="${user.userId}"/></c:url>
-	<c:url var="petLink" value="${pageContext.request.contextPath}/user-pet"><c:param name="uid" value="${user.userId}"/></c:url>
+	<c:url var="profilLink" value="/user-profil"><c:param name="id" value="${user.userId}"/></c:url>
+	<c:url var="petLink" value="/user-pet"><c:param name="uid" value="${user.userId}"/></c:url>
 	<!-- Dropdown Structure -->
 	<ul id="dropdown1" class="dropdown-content">
 		<li><a href="${profilLink}" class="purple-text text-darken-3">Lihat Profil</a></li>

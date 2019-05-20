@@ -10,13 +10,13 @@
 	<body>
 		<jsp:include page="include/navbar-admin.jsp" />
 
-		<div class="section purple lighten-2" id="index-banner">
+		<div class="section blue-grey lighten-5" id="index-banner">
 			<div class="container">
-				<h1 class="header center yellow-text text-lighten-2">Login Admin</h1>
+				<h1 class="header center grey-text text-darken-3 light">Login Admin</h1>
 			</div>
 		</div>
 
-		<div class="section purple lighten-2">
+		<div class="section blue-grey lighten-5">
 			<div class="container">
 				<div class="row">
 					<div class="container">
@@ -25,7 +25,7 @@
 							<div class="card grey lighten-5">
 								<div class="card-content grey-text text-darken-4">
 									<span class="card-title">Login Form</span>
-									<form:form method="POST" action="admin-check" modelAttribute="admin">
+									<form:form method="POST" action="check" modelAttribute="admin">
 										<div class="row" style="margin-bottom:0;">
 											<div class="input-field col s12">
 												<form:input type="email" path="adminEmail"/>
@@ -51,8 +51,14 @@
 			</div>
 		</div>
 	
-		<footer class="page-footer purple lighten-2">	
-			<jsp:include page="include/footer-c.jsp" />
+		<footer class="page-footer blue-grey lighten-5">	
+			<div class="footer-copyright">
+				<div class="container center grey-text text-darken-3">
+					Dibuat oleh <a class="purple-text"
+						href="https://github.com/irmankurniawan/PBKK-FinalProject"
+						target="">PBKK B - Kelompok 8</a>
+				</div>
+			</div>
 		</footer>
 		
 		<script src="<c:url value="/resources/js/init.js" />"></script>

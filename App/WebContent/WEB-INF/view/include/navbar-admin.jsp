@@ -8,16 +8,16 @@
 		<li><a href="${pageContext.request.contextPath}/admin/logout" class="purple-text text-darken-3">Keluar</a></li>
 	</ul>
 	
-	<nav class="purple lighten-2 z-depth-0" role="navigation">
+	<nav class="blue-grey lighten-5 z-depth-0" role="navigation">
 		<div class="nav-wrapper container">
-			<a id="logo-container" href="${pageContext.request.contextPath}/admin/" class="brand-logo">C&amp;D</a>
+			<a id="logo-container" href="${pageContext.request.contextPath}/admin/" class="brand-logo purple-text text-darken-1">C&amp;D</a>
 			
 			<!-- PC Navigation bar -->
 			<ul class="right hide-on-med-and-down">
 				<% if(session.getAttribute("admin")==null){ %>
-					<li><a href="${pageContext.request.contextPath}/admin/login"> <i class="material-icons left">exit_to_app</i>LOGIN</a></li>
+					<li><a class="purple-text text-darken-1" href="${pageContext.request.contextPath}/admin/login"> <i class="material-icons left">exit_to_app</i>LOGIN</a></li>
 				<% } else {%>
-					<li><a class="dropdown-trigger" href="#!" data-target="dropdown1">${admin.adminNama}<i class="material-icons right">arrow_drop_down</i></a></li>
+					<li><a class="dropdown-trigger purple-text text-darken-1" href="#!" data-target="dropdown1">${admin.adminNama}<i class="material-icons right">arrow_drop_down</i></a></li>
 				<% }%>
 			</ul>
 
