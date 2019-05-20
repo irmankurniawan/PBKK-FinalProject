@@ -22,15 +22,12 @@ public class ServiceTransaksi implements ITransaksiService {
 		return dao.getAllTransaksi();
 	}
 
-
 	@Override
 	@Transactional
 	public Transaksi getTransaksi(Transaksi transaksi) {
 		
 		return dao.getTransaksi(transaksi);
 	}
-
-	
 
 	@Override
 	@Transactional
@@ -41,9 +38,9 @@ public class ServiceTransaksi implements ITransaksiService {
 
 	@Override
 	@Transactional
-	public List<Transaksi> getTransaksiByIdUser(int theID) {
+	public List<Transaksi> getTransaksiByIdUser(int theId) {
 		
-		return dao.getTransaksi();
+		return dao.getTransaksiByIdUser(theId);
 	}
-
+	
 }
