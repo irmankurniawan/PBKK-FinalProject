@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import id.kel8.catdogdaycare.model.Admin;
+import id.kel8.catdogdaycare.model.User;
 import id.kel8.catdogdaycare.service.IAdminService;
 
 @Controller
@@ -20,8 +21,26 @@ public class AdminController {
 	@Autowired
 	private IAdminService adminService;
 
+	@GetMapping("")
+	public String adminHomePage(HttpSession httpSession) {
+		Admin admin = (Admin) httpSession.getAttribute("admin");
+		if(admin==null) return "redirect:/admin/login";
+		return "redirect:admin/home";
+	}
+	
 	@GetMapping("/")
-	public String adminHomePage() {
+	public String adminHomePage2(HttpSession httpSession) {
+		Admin admin = (Admin) httpSession.getAttribute("admin");
+		if(admin==null) return "redirect:/admin/login";
+		return "redirect:home";
+	}
+	
+	@GetMapping("/home")
+	public String homePage(Model model, HttpSession httpSession) {
+		Admin admin = (Admin) httpSession.getAttribute("admin");
+		if(admin==null) return "redirect:/admin/login";
+		
+		model.addAttribute("admin", admin);
 		return "admin-home";
 	}
 	
@@ -33,6 +52,23 @@ public class AdminController {
 		model.addAttribute("admin", new Admin());
 		
 		return "login-admin";
+	}
+	
+	@PostMapping("/check")
+	public String adminCheck(Admin admin, HttpSession httpSession, Model model) {
+		
+		Admin hasil = adminService.getAdmin(admin);
+		if(hasil==null) return "redirect:/admin/login";
+		
+		httpSession.setAttribute("admin", hasil);
+		
+		return "redirect:/admin/home";
+	}
+	
+	@GetMapping("/logout")
+	public String logOut(HttpSession httpSession) {
+		httpSession.setAttribute("admin", null);
+		return "redirect:/admin";
 	}
 	
 	@GetMapping("/admin-list")
