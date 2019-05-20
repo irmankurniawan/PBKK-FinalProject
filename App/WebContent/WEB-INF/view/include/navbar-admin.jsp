@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="navbar-fixed">
-	<c:url var="profilLink" value="${pageContext.request.contextPath}/admin/profil"><c:param name="id" value="${admin.adminId}"/></c:url>
+	<c:url var="profilLink" value="/admin/profil"><c:param name="id" value="${admin.adminId}"/></c:url>
 	<!-- Dropdown Structure -->
 	<ul id="dropdown1" class="dropdown-content">
 		<li><a href="${profilLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
