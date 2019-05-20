@@ -13,9 +13,11 @@ public class Transaksi {
 	private int trId;
 	
 	@Column(name="tr_tgl_cekin")
+	@Temporal(TemporalType.DATE)
 	private Date trTglCekin;
 	
 	@Column(name="tr_tgl_cekout")
+	@Temporal(TemporalType.DATE)
 	private Date trTglCekout;
 	
 	@Column(name="tr_total_bayar")
@@ -24,6 +26,30 @@ public class Transaksi {
 	@Column(name="tr_status_bayar")
 	private String trStatusBayar;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="tr_id_user")
+	private User user;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="tr_id_pet")
+	private Pet pet;
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+
 	public int getTrId() {
 		return trId;
 	}

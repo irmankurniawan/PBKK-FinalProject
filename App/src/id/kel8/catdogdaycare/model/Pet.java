@@ -1,5 +1,7 @@
 package id.kel8.catdogdaycare.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +22,17 @@ public class Pet {
 	@Column(name="pet_gender")
 	private String petGender;
 	
+//	@OneToMany(fetch=FetchType.EAGER ,mappedBy="pet",cascade= {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.DETACH, CascadeType.REFRESH})
+//	private List<Transaksi> transaksis;
+//	
+//	public List<Transaksi> getTransaksis() {
+//		return transaksis;
+//	}
+//
+//	public void setTransaksis(List<Transaksi> transaksis) {
+//		this.transaksis = transaksis;
+//	}
+
 	public int getPetId() {
 		return petId;
 	}

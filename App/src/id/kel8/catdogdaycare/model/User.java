@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="user")
 public class User {
@@ -29,6 +32,11 @@ public class User {
 	@OneToMany(fetch=FetchType.EAGER ,cascade=CascadeType.ALL)
 	@JoinColumn(name="pet_id_pemilik", referencedColumnName = "user_id", nullable = true, insertable=false, updatable=false)
 	private List<Pet> pets;
+	
+	@OneToMany(fetch=FetchType.EAGER ,cascade=CascadeType.ALL)
+	@Fetch(value = FetchMode.SUBSELECT)
+	@JoinColumn(name="tr_id_user", referencedColumnName = "user_id", nullable = true, insertable=false, updatable=false)
+	private List<Transaksi> transaksis;
 	
 	public int getUserId() {
 		return userId;
@@ -79,6 +87,22 @@ public class User {
 	
 	public void setPets(List<Pet> pets) {
 		this.pets = pets;
+	}
+	
+	//convenience method
+	public void addTransaksi(Transaksi theTransaksi) {
+		if(transaksis == null) transaksis = new ArrayList<>();
+		
+		transaksis.add(theTransaksi);
+		
+	}
+	
+	public List<Transaksi> getTransaksi() {
+		return transaksis;
+	}
+	
+	public void setTransaksi(List<Transaksi> transaksis) {
+		this.transaksis = transaksis;
 	}
 	
 	public User() {
