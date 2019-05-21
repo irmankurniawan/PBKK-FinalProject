@@ -13,6 +13,8 @@ public interface ITransaksiService {
 	
 	public List<Transaksi> getTransaksiByIdUser(int theId);
 	
-	public void addTransaksi(Transaksi transaksi);
+	public void addTransaksi(Transaksi transaksi, int petid, int userid);
 	public void updateTransaksi(Transaksi transaksi);
+
+	public void titipPet(int pet_id, int user_id);
 }

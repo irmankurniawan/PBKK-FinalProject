@@ -5,14 +5,14 @@
 <html>
 	<head>
 		<jsp:include page="include/head.jsp"/>
-		<title>Daftar Hewan</title>
+		<title>Daftar Transaksi</title>
 	</head>
 	<body>
 
 		<jsp:include page="include/navbar.jsp" />  
 		<div class="section purple lighten-2" id="index-banner">
 			<div class="container">
-				<h1 class="header center yellow-text text-lighten-2">Daftar Hewan</h1>
+				<h1 class="header center yellow-text text-lighten-2">Daftar Transaksi</h1>
 			</div>
 		</div>
 
@@ -24,51 +24,51 @@
 	
 					<div class="col s12 m8">
 					<c:choose>
-					<c:when test="${fn:length(pets)>0}">
+					<c:when test="${fn:length(transaksis)>0}">
 						<table class="centered highlight responsive-table">
 						  <thead>
 						    <tr>
-						        <!-- <th>ID</th> -->
-						        <th>Nama</th>
-						        <th>Jenis</th>
-						        <th>Gender</th>
-						        <th>Action</th>
+						        <th>ID</th>
+						        <th>Pet</th>
+						        <th>Check In</th>
+						        <th>Check Out</th>
+						        <th>Total Bayar</th>
+						        <th>Status Bayar</th>
 						    </tr>
 						  </thead>
 						
 						  <tbody>
 						  	
-							<c:forEach var="pet" items="${pets}">
+							<c:forEach var="transaksi" items="${transaksis}">
 								<tr>
 								<c:url var="petEdit" value="/pet-edit"><c:param name="id" value="${pet.petId}"/></c:url>
 								<c:url var="petDelete" value="/pet-delete"><c:param name="id" value="${pet.petId}"/></c:url>
 								<c:url var="petTitip" value="/pet-titip"><c:param name="uid" value="${user.userId}"/><c:param name="pid" value="${pet.petId}"/></c:url>
-							      <%-- <td><c:out value="${pet.petId}"/></td> --%>
-							      <td><c:out value="${pet.petName}"/></td>
-							      <td><c:out value="${pet.petJenis}"/></td>
-							      <td><c:out value="${pet.petGender}"/></td>
-							      <td>
-							      	<a class="waves-effect waves-light btn purple" href="${petEdit}"><i class="material-icons">edit</i></a>
-							      	<%-- <a class="waves-effect waves-light btn red" href="${petDelete}"><i class="material-icons">delete</i></a> --%>
-							      	<a class="waves-effect waves-light btn green" href="${petTitip}">TITIPKAN</a>
-							      </td>
+							      
+							      <td><c:out value="${transaksi.trId}"/></td>
+							      <td><c:out value="${transaksi.pet.getPetId()}"/></td>
+							      <td><c:out value="${transaksi.trTglCekin}"/></td>
+							      <td><c:out value="${transaksi.trTglCekout}"/></td>
+							      <td><c:out value="${transaksi.trTotalBayar}"/></td>
+							      <td><c:out value="${transaksi.trStatusBayar}"/></td>
+							      
 							    </tr>
 							</c:forEach>
 						  </tbody>
 						</table>
 						<div class="center" style="margin-top:2em;">
-							<a href="pet-add" id="download-button"
-								class="btn-large waves-effect waves-light green lighten-2">Tambahkan Hewan</a>
+							<!-- <a href="pet-add" id="download-button"
+								class="btn-large waves-effect waves-light green lighten-2">Tambahkan Hewan</a> -->
 						</div>
 					</c:when>
 					<c:otherwise>
 					<div style="margin:5em 0;">
 						<div class="center">
-							<h5 class="grey-text">Kamu belum pernah mengisi data hewan</h5>
+							<h5 class="grey-text">Kamu belum pernah melakukan transaksi</h5>
 						</div>
 						<div class="center" style="margin-top:4em;">
-							<a href="pet-add" id="download-button"
-								class="btn-large waves-effect waves-light green lighten-2">Tambahkan Hewan</a>
+							<a href="user-pet?uid=${user.userId}" id="download-button"
+								class="btn-large waves-effect waves-light green lighten-2">Tambahkan Transaksi</a>
 						</div>
 					</div>
 					</c:otherwise>

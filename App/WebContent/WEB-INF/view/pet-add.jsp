@@ -89,6 +89,6 @@
 			<jsp:include page="include/footer-c.jsp" />
 		</footer>
 		
-		<script src="resources/js/init.js"></script>
+		<script src="<c:url value="/resources/js/init.js" />"></script>
 	</body>
 </html>

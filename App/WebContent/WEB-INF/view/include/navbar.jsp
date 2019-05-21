@@ -2,10 +2,12 @@
 <div class="navbar-fixed">
 	<c:url var="profilLink" value="/user-profil"><c:param name="id" value="${user.userId}"/></c:url>
 	<c:url var="petLink" value="/user-pet"><c:param name="uid" value="${user.userId}"/></c:url>
+	<c:url var="transLink" value="/user-transaksi"><c:param name="uid" value="${user.userId}"/></c:url>
 	<!-- Dropdown Structure -->
 	<ul id="dropdown1" class="dropdown-content">
 		<li><a href="${profilLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
 		<li><a href="${petLink}" class="purple-text text-darken-3">Lihat Pet</a></li>
+		<li><a href="${transLink}" class="purple-text text-darken-3">Lihat Transaksi</a></li>
 		<li class="divider"></li>
 		<li><a href="user-logout" class="purple-text text-darken-3">Keluar</a></li>
 	</ul>

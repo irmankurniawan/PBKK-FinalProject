@@ -45,8 +45,8 @@ public class ServiceTransaksi implements ITransaksiService {
 
 	@Override
 	@Transactional
-	public void addTransaksi(Transaksi transaksi) {
-		dao.addTransaksi(transaksi);
+	public void addTransaksi(Transaksi transaksi, int petid, int userid) {
+		dao.addTransaksi(transaksi, petid, userid);
 		
 	}
 
@@ -54,6 +54,13 @@ public class ServiceTransaksi implements ITransaksiService {
 	@Transactional
 	public void updateTransaksi(Transaksi transaksi) {
 		dao.updateTransaksi(transaksi);
+		
+	}
+
+	@Override
+	@Transactional
+	public void titipPet(int pet_id, int user_id) {
+		dao.titipPet(pet_id, user_id);
 		
 	}
 	

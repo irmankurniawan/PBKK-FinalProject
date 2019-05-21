@@ -73,4 +73,12 @@ public class PetDAO implements PetInterfaceDAO {
 		return hasil;
 	}
 
+	@Override
+	public void deletePet(int petId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query theQuery = currentSession.createQuery("delete from Pet where petId=:_petId");
+		theQuery.setParameter("_petId", petId);
+		theQuery.executeUpdate(); 
+	}
+
 }

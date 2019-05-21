@@ -52,6 +52,6 @@ public class HomeController {
 	@PostMapping("/addUser")
 	public String addUser(@ModelAttribute("user") User user) {
 		userService.addUser(user);
-		return "redirect:/user-list";
+		return "redirect:/login";
 	}
 }

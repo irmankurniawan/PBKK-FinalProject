@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import id.kel8.catdogdaycare.model.User;
+import id.kel8.catdogdaycare.service.ITransaksiService;
 import id.kel8.catdogdaycare.service.IUserService;
 
 @Controller
@@ -18,6 +19,9 @@ public class UserController {
 	
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired
+	private ITransaksiService transaksiService;
 	
 	@GetMapping("/user-list")
 	public String userListPage(Model model) {
@@ -68,6 +72,15 @@ public class UserController {
 		User user2 = userService.getUserById(theId);
 		model.addAttribute("user", user2);
 		return "user-profil";
+	}
+	
+	@GetMapping("/user-transaksi")
+	public String petListPage(@RequestParam("uid") int theId, Model model, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		if(user==null || user.getUserId()!=theId) return "redirect:/login";
+		
+		model.addAttribute("transaksis", transaksiService.getTransaksiByIdUser(theId));
+		return "user-transaksi";
 	}
 	
 	@GetMapping("/user-edit") 

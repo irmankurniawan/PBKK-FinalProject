@@ -15,8 +15,8 @@
 				</div>
 				<br/><br/>
 				<div class="center">
-					<a href="pet-add" id="download-button"
-						class="btn-large waves-effect waves-light yellow lighten-2 grey-text text-darken-3">Tambahkan Hewan</a>
+					<a href="${pageContext.request.contextPath}/user-pet?uid=${user.userId}" id="download-button"
+						class="btn-large waves-effect waves-light yellow lighten-2 grey-text text-darken-3">Titipkan Hewan</a>
 				</div>
 				<br/><br/>
 			</div>

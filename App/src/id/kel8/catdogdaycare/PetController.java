@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import id.kel8.catdogdaycare.model.Pet;
+import id.kel8.catdogdaycare.model.Transaksi;
 import id.kel8.catdogdaycare.model.User;
 import id.kel8.catdogdaycare.service.IPetService;
+import id.kel8.catdogdaycare.service.ITransaksiService;
 import id.kel8.catdogdaycare.service.IUserService;
 
 @Controller
@@ -23,6 +25,9 @@ public class PetController {
 	
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired
+	private ITransaksiService transaksiService;
 	
 	@GetMapping("/user-pet")
 	public String petListPage(@RequestParam("uid") int theId, Model model, HttpSession httpSession) {
@@ -44,6 +49,16 @@ public class PetController {
 		return "pet-edit";
 	}
 	
+	@GetMapping("/pet-delete")
+	public String petDelete(@RequestParam("id") int petId, Model model, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		if(user==null) return "redirect:/login";
+		
+		petService.deletePet(petId);
+		
+		return "redirect:/user-pet?uid="+user.getUserId();
+	}
+	
 	@GetMapping("/pet-add")
 	public String addPetPage(Model model, HttpSession httpSession) {
 		User user = (User) httpSession.getAttribute("user");
@@ -54,6 +69,19 @@ public class PetController {
 		model.addAttribute("modelPet", pete);
 		return "pet-add";
 	}
+	
+	@GetMapping("/pet-titip")
+	public String titipPet(@RequestParam("pid") int pet_id, @RequestParam("uid") int user_id, Model model, HttpSession httpSession) {
+		User user = (User) httpSession.getAttribute("user");
+		if(user==null) return "redirect:/login";
+
+		model.addAttribute("petId", pet_id);
+		model.addAttribute("userId", user_id);
+		model.addAttribute("modelTransaksi", new Transaksi());
+		return "transaksi-add";
+	}
+	
+	
 	
 	@PostMapping("/addPet")
 	public String addPet(@ModelAttribute("pet") Pet pet, HttpSession httpSession) {

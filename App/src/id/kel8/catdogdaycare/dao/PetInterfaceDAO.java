@@ -15,4 +15,6 @@ public interface PetInterfaceDAO {
 	
 	public Pet getPetById(int theId);
 	public List<Pet> getPetByIdUser(int theId);
+
+	public void deletePet(int petId);
 }

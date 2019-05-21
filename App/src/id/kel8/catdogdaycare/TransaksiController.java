@@ -66,6 +66,28 @@ public class TransaksiController {
 		return "transaksi-edit";
 	}
 	
+	@PostMapping("/addTransaksi") 
+	public String addTrans(@RequestParam("pid") int pet_id,
+						@RequestParam("uid") int user_id, 
+						@RequestParam("trTglCekin") Date tgl_cekin,
+						@RequestParam("trTglCekout") Date tgl_cekout,
+						@RequestParam("trTotalBayar") int total_bayar,
+						@RequestParam("trStatusBayar") String status_bayar,
+						@ModelAttribute("modelTransaksi") Transaksi transaksi) {
+		
+		Transaksi newTrans = new Transaksi();
+		newTrans.setTrTglCekin(tgl_cekin);
+		newTrans.setTrTglCekout(tgl_cekout);
+		newTrans.setTrTotalBayar(total_bayar);
+		newTrans.setTrStatusBayar(status_bayar);
+		newTrans.setUser(userService.getUserById(user_id));
+		newTrans.setPet(petService.getPetById(pet_id));
+		
+		transaksiService.addTransaksi(newTrans, pet_id, user_id);
+		//transaksiService.titipPet(pet_id, user_id);
+		return "redirect:/user-transaksi?uid="+user_id;
+	}
+	
 	@PostMapping("/updateTransaksi")
 	public String updateTrans(@ModelAttribute("modelTransaksi") Transaksi transaksi, HttpSession httpSession,
 			@RequestParam("trId") int id,

@@ -41,10 +41,10 @@ public class TransaksiDAO implements TransaksiInterfaceDAO {
 	@Override
 	public List<Transaksi> getTransaksiByIdUser(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Query<Transaksi> query = currentSession.createQuery("from Transaksi", Transaksi.class);
-		
-		List<Transaksi> transaksi = query.getResultList();
-		return transaksi;
+		List<Transaksi> hasil = null;
+		User que = currentSession.get(User.class, theId);
+		hasil = que.getTransaksi();
+		return hasil;
 	}
 
 	@Override
@@ -54,15 +54,32 @@ public class TransaksiDAO implements TransaksiInterfaceDAO {
 	}
 
 	@Override
-	public void addTransaksi(Transaksi transaksi) {
-		// TODO Auto-generated method stub
+	public void addTransaksi(Transaksi transaksi, int petid, int userid) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.save(transaksi);
 		
+		//updating user dan pet
+		int trid = transaksi.getTrId();
+		int pid = petid;
+		int uid = userid;
+		
+		Query que = currentSession.createQuery("update Transaksi set tr_id_user=:_iduser, tr_id_pet=:_idpet where tr_id=:_idtr");
+		que.setParameter("_idpet", pid);
+		que.setParameter("_iduser", uid);
+		que.setParameter("_idtr", trid);
+		que.executeUpdate();
 	}
 
 	@Override
 	public void updateTransaksi(Transaksi transaksi) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(transaksi);
+	}
+
+	@Override
+	public void titipPet(int pet_id, int user_id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
 	}
 
 }

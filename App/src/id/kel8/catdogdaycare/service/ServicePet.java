@@ -59,4 +59,11 @@ public class ServicePet implements IPetService {
 		return dao.getPetByIdUser(theId);
 	}
 
+	@Override
+	@Transactional
+	public void deletePet(int petId) {
+		dao.deletePet(petId);
+		
+	}
+
 }

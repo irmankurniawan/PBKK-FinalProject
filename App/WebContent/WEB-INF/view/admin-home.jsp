@@ -19,7 +19,7 @@
 		
 					<!--   Icon Section   -->
 					<div class="row">
-						<div class="col s12 m4">
+						<div class="col s12 m6">
 							<div class="icon-block center">
 								<h2 class="center purple-text text-lighten-2">
 									<i class="material-icons">people</i>
@@ -30,7 +30,7 @@
 							</div>
 						</div>
 		
-						<div class="col s12 m4">
+						<%-- <div class="col s12 m4">
 							<div class="icon-block center">
 								<h2 class="center purple-text text-lighten-2">
 									<i class="material-icons">pets</i>
@@ -39,9 +39,9 @@
 								<p class="light">Lihat semua hewan masuk</p>
 								<a href="${pageContext.request.contextPath}/admin/transaksi-list" class="btn-large waves-effect waves-light purple lighten-2">LIHAT HEWAN</a>
 							</div>
-						</div>
+						</div> --%>
 		
-						<div class="col s12 m4">
+						<div class="col s12 m6">
 							<div class="icon-block center">
 								<h2 class="center purple-text text-lighten-2">
 									<i class="material-icons">assignment</i>
