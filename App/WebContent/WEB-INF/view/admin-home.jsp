@@ -20,37 +20,42 @@
 					<!--   Icon Section   -->
 					<div class="row">
 						<div class="col s12 m4">
-							<div class="icon-block">
+							<div class="icon-block center">
 								<h2 class="center purple-text text-lighten-2">
-									<i class="material-icons">flash_on</i>
+									<i class="material-icons">people</i>
 								</h2>
-								<h5 class="center">In veniam elit sit ea</h5>
-								<p class="light">Lorem ipsum enim occaecat culpa aliqua est ea eu excepteur dolore pariatur aliquip sint ullamco eu non esse aliqua nisi commodo.</p>
+								<h5 class="center">Lihat Member</h5>
+								<p class="light">Lihat semua member terdaftar</p>
+								<a href="${pageContext.request.contextPath}/admin/member-list" class="btn-large waves-effect waves-light purple lighten-2">LIHAT MEMBER</a>
 							</div>
 						</div>
 		
 						<div class="col s12 m4">
-							<div class="icon-block">
+							<div class="icon-block center">
 								<h2 class="center purple-text text-lighten-2">
-									<i class="material-icons">group</i>
+									<i class="material-icons">pets</i>
 								</h2>
-								<h5 class="center">Velit do sunt</h5>
-								<p class="light">Eu dolor pariatur amet velit aliquip est reprehenderit ex sed dolor adipisicing tempor eu fugiat enim consectetur cupidatat duis velit amet aliqua quis nisi tempor nulla aute mollit esse laborum non in et consequat officia.</p>
+								<h5 class="center">Lihat Hewan</h5>
+								<p class="light">Lihat semua hewan masuk</p>
+								<a href="${pageContext.request.contextPath}/admin/transaksi-list" class="btn-large waves-effect waves-light purple lighten-2">LIHAT HEWAN</a>
 							</div>
 						</div>
 		
 						<div class="col s12 m4">
-							<div class="icon-block">
+							<div class="icon-block center">
 								<h2 class="center purple-text text-lighten-2">
-									<i class="material-icons">settings</i>
+									<i class="material-icons">assignment</i>
 								</h2>
-								<h5 class="center">Consequat nostrud</h5>
-								<p class="light">Ut cillum culpa sunt consequat eiusmod dolor mollit nostrud proident cillum amet incididunt ullamco reprehenderit mollit nisi consectetur.</p>
+								<h5 class="center">Lihat Transaksi</h5>
+								<p class="light">Lihat semua transaksi masuk</p>
+								<a href="${pageContext.request.contextPath}/transaksi-list" class="btn-large waves-effect waves-light purple lighten-2">LIHAT TRANSAKSI</a>
 							</div>
 						</div>
 					</div>
 		
 				</div>
+				<div class="section"></div>
+				<div class="section"></div>
 			</div>
 		</div>
 

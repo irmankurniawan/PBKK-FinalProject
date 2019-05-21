@@ -53,4 +53,16 @@ public class TransaksiDAO implements TransaksiInterfaceDAO {
 		return null;
 	}
 
+	@Override
+	public void addTransaksi(Transaksi transaksi) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTransaksi(Transaksi transaksi) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(transaksi);
+	}
+
 }

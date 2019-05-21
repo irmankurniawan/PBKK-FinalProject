@@ -8,13 +8,14 @@
 	</head>
 	<body>
 
-		<jsp:include page="include/navbar.jsp" />  
-		<div class="section purple lighten-2" id="index-banner">
+		<jsp:include page="include/navbar-admin.jsp" />  
+		<div class="section blue-grey lighten-5" id="index-banner">
 			<div class="container">
-				<h1 class="header center yellow-text text-lighten-2">Daftar Transaksi</h1>
+				<h1 class="header center grey-text text-darken-1">Daftar Transaksi</h1>
 			</div>
 		</div>
 
+		<div class="section blue-grey lighten-5" style="min-height:380px;">
 		<div class="container">
 			<div class="section">
 				<div class="row">
@@ -26,6 +27,8 @@
 						  <thead>
 						    <tr>
 						        <th>ID</th>
+						        <th>Member</th>
+						        <th>Pet</th>
 						        <th>Check In</th>
 						        <th>Check Out</th>
 						        <th>Total Bayar</th>
@@ -41,6 +44,8 @@
 						  		</c:url>
 								<tr>
 							      <td><c:out value="${transaksi.trId}"/></td>
+							      <td><c:out value="${transaksi.user.getUserId()}"/></td>
+							      <td><c:out value="${transaksi.pet.getPetId()}"/></td>
 							      <td><c:out value="${transaksi.trTglCekin}"/></td>
 							      <td><c:out value="${transaksi.trTglCekout}"/></td>
 							      <td><c:out value="${transaksi.trTotalBayar}"/></td>
@@ -61,11 +66,18 @@
 	
 			</div>
 		</div>
+		</div>
 	
-		<footer class="page-footer purple lighten-2">	
-			<jsp:include page="include/footer-c.jsp" />
+		<footer class="page-footer blue-grey lighten-5">	
+			<div class="footer-copyright">
+				<div class="container center grey-text text-darken-3">
+					Dibuat oleh <a class="purple-text"
+						href="https://github.com/irmankurniawan/PBKK-FinalProject"
+						target="">PBKK B - Kelompok 8</a>
+				</div>
+			</div>
 		</footer>
 		
-		<script src="resources/js/init.js"></script>
+		<script src="<c:url value="/resources/js/init.js" />"></script>
 	</body>
 </html>

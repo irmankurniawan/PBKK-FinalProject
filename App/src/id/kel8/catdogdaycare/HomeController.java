@@ -30,6 +30,7 @@ public class HomeController {
 
 	@GetMapping("/login")
 	public String loginPage(Model model, HttpSession httpSession) {
+		httpSession.setAttribute("admin", null);
 		User user = (User) httpSession.getAttribute("user");
 		//jika ada session user, maka redirect ke dashboard user
 		if(user!=null) {

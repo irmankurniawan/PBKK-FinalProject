@@ -26,12 +26,12 @@ public class Transaksi {
 	@Column(name="tr_status_bayar")
 	private String trStatusBayar;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="tr_id_user")
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="tr_id_user", nullable = true, insertable=false, updatable=false)
 	private User user;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="tr_id_pet")
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="tr_id_pet", nullable = true, insertable=false, updatable=false)
 	private Pet pet;
 	
 	public User getUser() {

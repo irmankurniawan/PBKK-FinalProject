@@ -42,5 +42,19 @@ public class ServiceTransaksi implements ITransaksiService {
 		
 		return dao.getTransaksiByIdUser(theId);
 	}
+
+	@Override
+	@Transactional
+	public void addTransaksi(Transaksi transaksi) {
+		dao.addTransaksi(transaksi);
+		
+	}
+
+	@Override
+	@Transactional
+	public void updateTransaksi(Transaksi transaksi) {
+		dao.updateTransaksi(transaksi);
+		
+	}
 	
 }

@@ -4,17 +4,18 @@
 <html>
 	<head>
 		<jsp:include page="include/head.jsp"/>
-		<title>Welcome!</title>
+		<title>Daftar Member</title>
 	</head>
 	<body>
 
-		<jsp:include page="include/navbar.jsp" />  
-		<div class="section purple lighten-2" id="index-banner">
+		<jsp:include page="include/navbar-admin.jsp" />  
+		<div class="section blue-grey lighten-5" id="index-banner">
 			<div class="container">
-				<h1 class="header center yellow-text text-lighten-2">Daftar User</h1>
+				<h1 class="header center grey-text text-darken-1">Daftar Member</h1>
 			</div>
 		</div>
 
+		<div class="section blue-grey lighten-5">
 		<div class="container">
 			<div class="section">
 				<div class="row">
@@ -59,11 +60,18 @@
 	
 			</div>
 		</div>
-	
-		<footer class="page-footer purple lighten-2">	
-			<jsp:include page="include/footer-c.jsp" />
+		</div>
+		
+		<footer class="page-footer blue-grey lighten-5">	
+			<div class="footer-copyright">
+				<div class="container center grey-text text-darken-3">
+					Dibuat oleh <a class="purple-text"
+						href="https://github.com/irmankurniawan/PBKK-FinalProject"
+						target="">PBKK B - Kelompok 8</a>
+				</div>
+			</div>
 		</footer>
 		
-		<script src="resources/js/init.js"></script>
+		<script src="<c:url value="/resources/js/init.js" />"></script>
 	</body>
 </html>

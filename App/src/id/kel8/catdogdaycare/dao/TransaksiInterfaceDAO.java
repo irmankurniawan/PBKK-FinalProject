@@ -12,4 +12,8 @@ public interface TransaksiInterfaceDAO {
 	public Transaksi getTransaksiById(int theId);
 	
 	public List<Transaksi> getTransaksiByIdUser(int theId);
+
+	public void addTransaksi(Transaksi transaksi);
+
+	public void updateTransaksi(Transaksi transaksi);
 }

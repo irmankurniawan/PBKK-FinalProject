@@ -5,6 +5,9 @@
 	<ul id="dropdown1" class="dropdown-content">
 		<li><a href="${profilLink}" class="purple-text text-darken-3">Lihat Profil</a></li>
 		<li class="divider"></li>
+		<li><a href="${pageContext.request.contextPath}/admin/member-list" class="purple-text text-darken-3">Lihat Member</a></li>
+		<li><a href="${pageContext.request.contextPath}/admin/transaksi-list" class="purple-text text-darken-3">Lihat Transaksi</a></li>
+		<li class="divider"></li>
 		<li><a href="${pageContext.request.contextPath}/admin/logout" class="purple-text text-darken-3">Keluar</a></li>
 	</ul>
 	
